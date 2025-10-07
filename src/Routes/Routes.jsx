@@ -3,6 +3,7 @@ import RootLayout from "../Layouts/RootLayout";
 import Home from "../Pages/Home/Home";
 import Cars from "../Pages/Cars/Cars";
 import WishList from "../Pages/WishList/WishList";
+import CarDetails from "../Pages/CarDetails/CarDetails";
 
 export const router = createBrowserRouter([
   {
@@ -14,12 +15,16 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "cars",
+        path: "/cars",
         Component: Cars,
       },
       {
-        path: "wishlist",
+        path: "/wishlist",
         Component: WishList,
+      },
+      {
+        path: "/car-details/:id",
+        Component: CarDetails,
       },
     ],
   },
