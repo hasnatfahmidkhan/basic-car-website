@@ -5,9 +5,9 @@ import { Link, NavLink } from "react-router";
 const Navbar = () => {
   return (
     <nav className={"py-2 bg-base-100 shadow-sm sticky top-0 z-50 text-black"}>
-      <div className="navbar w-11/12 max-w-7xl mx-auto">
+      <div className="navbar w-11/12 max-w-7xl mx-auto 2xl:px-4">
         <div className="navbar-start">
-          <Link to="/" className="text-2xl font-bold">
+          <Link to="/" className="text-2xl font-extrabold playfair-font">
             GHORER GARI
           </Link>
         </div>

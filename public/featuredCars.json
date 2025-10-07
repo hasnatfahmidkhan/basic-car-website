@@ -1,0 +1,258 @@
+[
+  {
+    "id": 16,
+    "carName": "Tesla Model 3",
+    "brand": "Tesla",
+    "modelYear": 2022,
+    "type": "Electric",
+    "fuelType": "Electric",
+    "transmission": "Automatic",
+    "rating": 4.9,
+    "review": "Futuristic EV with instant torque and top performance.",
+    "price": 6500000,
+    "image": "https://riyasewana.com/uploads/toyota-axio-wxb-2018-612094612601.jpg",
+    "available": true,
+    "location": "Import Available (UAE)",
+    "mileage": "450 km range",
+    "engine": "Electric Motor",
+    "seats": 5,
+    "color": "Midnight Silver",
+    "condition": "Imported",
+    "registrationYear": 2022,
+    "chassisNumber": "TES3-****7788",
+    "features": [
+      "Autopilot",
+      "Fast Charging",
+      "Over-the-Air Updates",
+      "Glass Roof"
+    ],
+    "description": "High-performance electric sedan available for import. Excellent condition and low mileage.",
+    "sellerInfo": {
+      "name": "EV Imports BD",
+      "phone": "+8801719091919",
+      "email": "ev@importsbd.com"
+    },
+    "images": [
+      "https://i.ibb.co/XxVvhmx/tesla-model3.jpg",
+      "https://i.ibb.co/8z4bV3K/tesla-interior.jpg"
+    ],
+    "postedDate": "2025-09-30",
+    "views": 4120,
+    "ownership": "Imported",
+    "serviceHistory": "Battery Health Report"
+  },
+  {
+    "id": 13,
+    "carName": "BMW X1",
+    "brand": "BMW",
+    "modelYear": 2020,
+    "type": "SUV",
+    "fuelType": "Petrol",
+    "transmission": "Automatic",
+    "rating": 4.9,
+    "review": "Luxury compact SUV with superior performance.",
+    "price": 6800000,
+    "image": "https://riyasewana.com/uploads/toyota-axio-wxb-2018-612094612601.jpg",
+    "available": false,
+    "location": "Import Available (UK)",
+    "mileage": "13 km/l",
+    "engine": "2000 cc",
+    "seats": 5,
+    "color": "Alpine White",
+    "condition": "Imported",
+    "registrationYear": 2020,
+    "chassisNumber": "BMWX1-****4433",
+    "features": [
+      "Leather Interior",
+      "Adaptive M Suspension",
+      "Navigation",
+      "Parking Assist"
+    ],
+    "description": "Premium BMW X1 available for import. Clean history and low kilometers for its age.",
+    "sellerInfo": {
+      "name": "Luxury Imports",
+      "phone": "+8801710001112",
+      "email": "luxury@importsbd.com"
+    },
+    "images": [
+      "https://i.ibb.co/vmB4WBH/bmw-x1.jpg",
+      "https://i.ibb.co/w4k6Z2N/bmwx1-interior.jpg"
+    ],
+    "postedDate": "2025-06-02",
+    "views": 2300,
+    "ownership": "Imported",
+    "serviceHistory": "Full UK Service History"
+  },
+  {
+    "id": 3,
+    "carName": "Toyota Premio",
+    "brand": "Toyota",
+    "modelYear": 2017,
+    "type": "Sedan",
+    "fuelType": "Petrol",
+    "transmission": "Automatic",
+    "rating": 4.9,
+    "review": "Luxury and comfort with strong resale value.",
+    "price": 2200000,
+    "image": "https://riyasewana.com/uploads/toyota-axio-wxb-2018-612094612601.jpg",
+    "available": false,
+    "location": "Dhaka",
+    "mileage": "16 km/l",
+    "engine": "1500 cc",
+    "seats": 5,
+    "color": "Metallic Silver",
+    "condition": "Reconditioned",
+    "registrationYear": 2018,
+    "chassisNumber": "PREM-****9012",
+    "features": [
+      "Leather Seats",
+      "Cruise Control",
+      "Parking Sensors",
+      "Sunroof",
+      "Auto Headlights"
+    ],
+    "description": "Premium comfort sedan with neat interior and full service history. Perfect for executives and families.",
+    "sellerInfo": {
+      "name": "Dhaka Motors",
+      "phone": "+8801719876543",
+      "email": "info@dhakamotors.com"
+    },
+    "images": [
+      "https://i.ibb.co/mX2kh1x/toyota-premio.jpg",
+      "https://i.ibb.co/2dZkq9p/premio-interior.jpg"
+    ],
+    "postedDate": "2025-08-05",
+    "views": 2040,
+    "ownership": "1st Owner",
+    "serviceHistory": "Full Service Record"
+  },
+  {
+    "id": 20,
+    "carName": "Honda Civic",
+    "brand": "Honda",
+    "modelYear": 2020,
+    "type": "Sedan",
+    "fuelType": "Petrol",
+    "transmission": "Automatic",
+    "rating": 4.9,
+    "review": "Powerful and stylish with excellent comfort.",
+    "price": 3500000,
+    "image": "https://riyasewana.com/uploads/toyota-axio-wxb-2018-612094612601.jpg",
+    "available": true,
+    "location": "Dhaka",
+    "mileage": "15 km/l",
+    "engine": "1500 cc Turbo",
+    "seats": 5,
+    "color": "Ceramic White",
+    "condition": "Imported",
+    "registrationYear": 2020,
+    "chassisNumber": "CIV-****3344",
+    "features": [
+      "Turbocharged Engine",
+      "LED Lights",
+      "Sport Mode",
+      "Lane Keep Assist"
+    ],
+    "description": "Sporty sedan with advanced safety and performance. Well-maintained and imported with full inspection report.",
+    "sellerInfo": {
+      "name": "Civic House BD",
+      "phone": "+8801715566778",
+      "email": "contact@civichousebd.com"
+    },
+    "images": [
+      "https://i.ibb.co/tsbP6Br/honda-civic.jpg",
+      "https://i.ibb.co/GpR3m2N/civic-interior.jpg"
+    ],
+    "postedDate": "2025-09-05",
+    "views": 1995,
+    "ownership": "Imported",
+    "serviceHistory": "Import & Local Service"
+  },
+  {
+    "id": 1,
+    "carName": "Toyota Axio",
+    "brand": "Toyota",
+    "modelYear": 2018,
+    "type": "Sedan",
+    "fuelType": "Hybrid",
+    "transmission": "Automatic",
+    "rating": 4.8,
+    "review": "Smooth driving and excellent fuel efficiency, perfect for city rides.",
+    "price": 1650000,
+    "image": "https://riyasewana.com/uploads/toyota-axio-wxb-2018-612094612601.jpg",
+    "available": true,
+    "location": "Dhaka",
+    "mileage": "22 km/l",
+    "engine": "1500 cc",
+    "seats": 5,
+    "color": "Pearl White",
+    "condition": "Reconditioned",
+    "registrationYear": 2019,
+    "chassisNumber": "AXIO-****3521",
+    "features": [
+      "Push Start",
+      "Smart Key",
+      "Rear Camera",
+      "ABS",
+      "Auto Climate Control",
+      "Hybrid System"
+    ],
+    "description": "Well-maintained Toyota Axio hybrid with low running cost and comfortable interior. Ideal for daily city commutes and family use.",
+    "sellerInfo": {
+      "name": "Green Motors BD",
+      "phone": "+8801712345678",
+      "email": "sales@greenmotorsbd.com"
+    },
+    "images": [
+      "https://i.ibb.co/3SRzQYB/toyota-axio.jpg",
+      "https://i.ibb.co/N3kLrSn/axio-interior.jpg",
+      "https://i.ibb.co/6YFzBRC/axio-back.jpg"
+    ],
+    "postedDate": "2025-09-10",
+    "views": 1245,
+    "ownership": "1st Owner",
+    "serviceHistory": "Full Service Record"
+  },
+  {
+    "id": 7,
+    "carName": "Mitsubishi Outlander",
+    "brand": "Mitsubishi",
+    "modelYear": 2020,
+    "type": "SUV",
+    "fuelType": "Hybrid",
+    "transmission": "Automatic",
+    "rating": 4.8,
+    "review": "Strong performance with premium feel.",
+    "price": 3100000,
+    "image": "https://riyasewana.com/uploads/toyota-axio-wxb-2018-612094612601.jpg",
+    "available": true,
+    "location": "Dhaka",
+    "mileage": "17 km/l",
+    "engine": "2400 cc",
+    "seats": 7,
+    "color": "Grey",
+    "condition": "Imported",
+    "registrationYear": 2021,
+    "chassisNumber": "OUT-****2200",
+    "features": [
+      "4WD",
+      "Leather Seats",
+      "Panoramic Roof",
+      "Blind Spot Monitor"
+    ],
+    "description": "Well-equipped SUV with great stability and modern features. Import verified and serviced locally.",
+    "sellerInfo": {
+      "name": "Premium Auto BD",
+      "phone": "+8801715556677",
+      "email": "premium@auto.com.bd"
+    },
+    "images": [
+      "https://i.ibb.co/WWNYyX9/mitsubishi-outlander.jpg",
+      "https://i.ibb.co/jh4Vw6P/outlander-interior.jpg"
+    ],
+    "postedDate": "2025-05-15",
+    "views": 890,
+    "ownership": "Imported",
+    "serviceHistory": "Import Service Done"
+  }
+]
