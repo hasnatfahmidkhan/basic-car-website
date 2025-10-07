@@ -4,6 +4,7 @@ import { Search } from "lucide-react";
 import CarCard from "../../Components/CarCard";
 import SkeletonLoader from "../../Components/SkeletonLoader/SkeletonLoader";
 import { Link } from "react-router";
+import HeroBanner from "../../Components/HeroBanner/HeroBanner";
 
 const Home = () => {
   const {
@@ -13,6 +14,7 @@ const Home = () => {
   } = useCarData("../featuredCars.json");
   return (
     <section>
+      <HeroBanner />
       <div className="flex justify-between items-center">
         <h2 className="text-4xl font-semibold">Featured Cars</h2>
         <div>
