@@ -1,0 +1,4 @@
+@import "tailwindcss";
+nav a.active {
+  @apply text-green-700 underline;
+}
