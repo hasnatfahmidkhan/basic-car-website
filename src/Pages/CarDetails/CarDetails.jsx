@@ -59,8 +59,12 @@ const CarDetails = () => {
 
           {/* Right: Main Info */}
           <div className="space-y-3">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
-              {brand} {carName} ({modelYear})
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 playfair-font">
+              {carName}
+              <span className="text-sm text-green-600 font-semibold">
+                ({brand})
+              </span>{" "}
+              {modelYear}
             </h1>
             <p className="text-gray-500 text-sm">
               Posted on {postedDate} • {views} views
