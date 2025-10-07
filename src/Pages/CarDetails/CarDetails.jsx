@@ -1,4 +1,4 @@
-import { Star, ClipboardList, ArrowBigLeft } from "lucide-react";
+import { Star, ClipboardList, PhoneOutgoing } from "lucide-react";
 import { Link, useLocation } from "react-router";
 
 const CarDetails = () => {
@@ -160,15 +160,15 @@ const CarDetails = () => {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
+              <Link
+                to={`tel:${sellerInfo.phone}`}
+                className="flex items-center justify-center gap-2 border border-green-600 text-green-700 px-4 py-2 rounded-lg text-sm hover:bg-green-50 transition"
+              >
+                <PhoneOutgoing size={16} /> Call Seller
+              </Link>
               <button className="cursor-pointer flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition">
                 <ClipboardList size={16} /> Add to Wishlist
               </button>
-              <Link
-                to="/cars"
-                className="flex items-center justify-center gap-2 border border-green-600 text-green-700 px-4 py-2 rounded-lg text-sm hover:bg-green-50 transition"
-              >
-                <ArrowBigLeft size={16} /> Back to Products
-              </Link>
             </div>
           </div>
         </div>
