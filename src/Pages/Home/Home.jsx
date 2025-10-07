@@ -7,11 +7,7 @@ import { Link } from "react-router";
 import HeroBanner from "../../Components/HeroBanner/HeroBanner";
 
 const Home = () => {
-  const {
-    cars: featuredCars,
-    loading,
-    error,
-  } = useCarData("../featuredCars.json");
+  const { cars: featuredCars, loading } = useCarData("../featuredCars.json");
   return (
     <section>
       <HeroBanner />

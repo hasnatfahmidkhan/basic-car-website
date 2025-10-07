@@ -1,9 +1,11 @@
 import { Star, ClipboardList, PhoneOutgoing } from "lucide-react";
 import { Link, useLocation } from "react-router";
+import { setWishList } from "../../Utitlity/localStorage";
 
 const CarDetails = () => {
   const { state } = useLocation();
   const {
+    id,
     carName,
     brand,
     modelYear,
@@ -170,7 +172,10 @@ const CarDetails = () => {
               >
                 <PhoneOutgoing size={16} /> Call Seller
               </Link>
-              <button className="cursor-pointer flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition">
+              <button
+                onClick={() => setWishList(id)}
+                className="cursor-pointer flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition"
+              >
                 <ClipboardList size={16} /> Add to Wishlist
               </button>
             </div>

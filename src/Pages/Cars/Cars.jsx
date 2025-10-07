@@ -5,7 +5,7 @@ import SkeletonLoader from "../../Components/SkeletonLoader/SkeletonLoader";
 import CarCard from "../../Components/CarCard";
 
 const Cars = () => {
-  const { cars, loading, error } = useCarData("../carsData.json");
+  const { cars, loading } = useCarData("../carsData.json");
   const [search, setSearch] = useState("");
 
   const term = search.trim().toLocaleLowerCase();
