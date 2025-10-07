@@ -39,9 +39,11 @@ const CarCard = ({ car }) => {
           <span className="badge text-green-700 bg-green-50 px-2 py-3">
             {condition}
           </span>
-          <span className="badge text-green-700 bg-green-50 px-2 py-3  text-base flex items-center">
+          <span className="badge text-gray-600 bg-green-50 px-2 py-3  text-base flex items-center">
             {rating}
-            <Star size={15} />
+            <span className="text-yellow-500">
+              <Star size={15} fill="currentColor" />
+            </span>{" "}
           </span>
         </div>
         {/* car features */}
