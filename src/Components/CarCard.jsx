@@ -4,7 +4,7 @@ const CarCard = ({ car }) => {
   const { brand, image, carName, description, features } = car || {};
 
   return (
-    <div className="card bg-base-100 shadow-sm">
+    <div className="card bg-base-100 shadow-sm hover:scale-105 transition-all ease-in-out duration-300">
       <figure>
         <img className="h-52 object-cover w-full" src={image} alt="Shoes" />
       </figure>

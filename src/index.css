@@ -3,6 +3,7 @@
 @plugin "daisyui";
 * {
   font-family: "Work Sans", sans-serif;
+  scrollbar-width: none;
 }
 
 .playfair-font {
