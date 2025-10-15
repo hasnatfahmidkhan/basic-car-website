@@ -68,7 +68,7 @@ const CarDetails = () => {
               thumbs={{ swiper: thumbsSwiper }}
               slidesPerView={1}
               loop={true}
-              navigation={true}
+              // navigation={true}
               modules={[Navigation, Thumbs, Autoplay]}
               autoplay={{
                 delay: 2500,
@@ -94,27 +94,28 @@ const CarDetails = () => {
               // REMOVED slidesPerView here to use breakpoints below
               spaceBetween={10}
               freeMode={true}
+              slidesPerView={3}
               watchSlidesProgress={true}
               modules={[Navigation, Thumbs, FreeMode]} // Added FreeMode
               className="mt-4 thumbnail-swiper"
               // ADDED PROP: Swiper Breakpoints for responsiveness
-              breakpoints={{
-                // 3 slides on screens 0px and up (mobile)
-                320: {
-                  slidesPerView: 3,
-                  spaceBetween: 10,
-                },
-                // 5 slides on screens 768px and up (tablet/desktop)
-                768: {
-                  slidesPerView: 5,
-                  spaceBetween: 10,
-                },
-                // 6 slides on screens 1024px and up (large desktop)
-                1024: {
-                  slidesPerView: 6,
-                  spaceBetween: 10,
-                },
-              }}
+              // breakpoints={{
+              //   // 3 slides on screens 0px and up (mobile)
+              //   320: {
+              //     slidesPerView: 3,
+              //     spaceBetween: 10,
+              //   },
+              //   // 5 slides on screens 768px and up (tablet/desktop)
+              //   768: {
+              //     slidesPerView: 5,
+              //     spaceBetween: 10,
+              //   },
+              //   // 6 slides on screens 1024px and up (large desktop)
+              //   1024: {
+              //     slidesPerView: 6,
+              //     spaceBetween: 10,
+              //   },
+              // }}
             >
               {slideImages.map((img, i) => (
                 <SwiperSlide key={i}>
@@ -122,7 +123,7 @@ const CarDetails = () => {
                     <img
                       src={img}
                       // CHANGED CLASS: Ensure uniform thumbnail size
-                      className="w-full h-20 object-cover rounded-lg border hover:scale-105 transition"
+                      className="w-full h-28 object-cover rounded-lg border hover:scale-105 transition"
                     />
                   </div>
                 </SwiperSlide>

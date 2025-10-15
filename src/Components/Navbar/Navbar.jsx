@@ -1,8 +1,9 @@
 import { Menu } from "lucide-react";
 import "./navbar.css";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <nav className={"py-2 bg-base-100 shadow-sm sticky top-0 z-50 text-black"}>
       <div className="navbar w-11/12 max-w-7xl mx-auto 2xl:px-4">
@@ -46,6 +47,22 @@ const Navbar = () => {
                 <NavLink to="/wishlist">WishList</NavLink>
               </li>
             </ul>
+          </div>
+
+          {/* Register and login btn  */}
+          <div className="flex items-center gap-4 ml-8">
+            <button
+              onClick={() => navigate("/login")}
+              className="btn btn-info text-base"
+            >
+              Login
+            </button>
+            <button
+              onClick={() => navigate("/register")}
+              className="btn btn-success text-base"
+            >
+              Register
+            </button>
           </div>
         </div>
       </div>

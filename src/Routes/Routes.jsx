@@ -5,6 +5,8 @@ import Cars from "../Pages/Cars/Cars";
 import WishList from "../Pages/WishList/WishList";
 import CarDetails from "../Pages/CarDetails/CarDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
 export const router = createBrowserRouter([
   {
@@ -29,5 +31,13 @@ export const router = createBrowserRouter([
         Component: CarDetails,
       },
     ],
+  },
+  {
+    path: "/login",
+    Component: Login,
+  },
+  {
+    path: "/register",
+    Component: Register,
   },
 ]);
