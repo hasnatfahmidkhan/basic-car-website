@@ -37,7 +37,6 @@ const CarDetails = () => {
     rating,
     review,
     price,
-    image,
     images,
     available,
     location,
