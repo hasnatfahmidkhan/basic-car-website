@@ -27,6 +27,7 @@ const WishList = () => {
 
   return (
     <section>
+      <title>Wishlist</title>
       <div className="flex justify-between items-center">
         <h2 className="text-4xl font-semibold">WishList</h2>
         <div>

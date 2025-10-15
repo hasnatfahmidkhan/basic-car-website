@@ -62,6 +62,7 @@ const CarDetails = () => {
 
   return (
     <div>
+      <title>Car Details</title>
       <section className="bg-white rounded-2xl shadow-md p-4 sm:p-6 md:p-10 mt-6 border border-gray-100">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

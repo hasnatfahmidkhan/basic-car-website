@@ -9,9 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handleSignOut = () => {
     signOutUser()
-      .then(()=>{
-
-      })
+      .then(() => {})
       .catch((err) => {
         console.log(err);
       });
@@ -33,7 +31,7 @@ const Navbar = () => {
         <li>
           <button
             onClick={handleSignOut}
-            className="xl:btn btn-info text-xl xl:text-base"
+            className="xl:btn btn-success font-medium text-xl xl:text-base"
           >
             SignOut
           </button>
@@ -63,9 +61,22 @@ const Navbar = () => {
   return (
     <nav className={"py-2 bg-base-100 shadow-sm sticky top-0 z-50 text-black"}>
       <div className="navbar w-11/12 max-w-7xl mx-auto 2xl:px-4">
-        <div className="navbar-start">
-          <Link to="/" className="text-2xl font-extrabold playfair-font">
-            GHORER GARI
+        <div className="navbar-start ">
+          <Link to="/" className="flex items-center w-full max-w-fit ">
+            <img className="w-12 object-cover" src="/logo.png" alt="" />
+            <span
+              className="text-nowrap text-2xl font-extrabold playfair-font"
+              style={{
+                background:
+                  "linear-gradient(135deg, #00FFA3, #00CFFF, #0078FF, #6A00FF)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontWeight: 900,
+                // textShadow: "0 0 25px rgba(0, 255, 200, 0.6)",
+              }}
+            >
+              HORER GARI
+            </span>
           </Link>
         </div>
 

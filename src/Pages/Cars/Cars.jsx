@@ -15,6 +15,7 @@ const Cars = () => {
 
   return (
     <section>
+      <title>All Cars</title>
       <div className="flex justify-between items-center">
         <h2 className="text-4xl font-semibold">
           Available Cars{" "}
