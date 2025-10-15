@@ -67,7 +67,7 @@ const Login = () => {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 cursor-pointer active:translate-y-0.5 transition duration-300 z-50"
                 >
-                  {!showPassword ? <Eye /> : <EyeOff />}
+                  {showPassword ? <Eye /> : <EyeOff />}
                 </span>
               </div>
               <div>
