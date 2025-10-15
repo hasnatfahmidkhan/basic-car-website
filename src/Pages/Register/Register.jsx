@@ -1,11 +1,14 @@
 import { use, useState } from "react";
-import { Link,  } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { createUser } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // handle register
   const handleRegister = (e) => {
@@ -13,13 +16,47 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     // console.log(email, password, createUser);
+
+    const passwordRegEx =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])(?!.*\s).{8,}$/;
+
+    if (!passwordRegEx.test(password)) {
+      toast.error(
+        "Password must be at least 8 characters long, contain uppercase and lowercase letters, a number, and a special character. Spaces are not allowed"
+      );
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         e.target.reset();
+        navigate(location.state || "/");
       })
       .catch((err) => {
-        console.log(err);
+        e.target.reset();
+        switch (err.code) {
+          case "auth/email-already-in-use":
+            toast.error("This email already has an account!");
+            break;
+          case "auth/invalid-email":
+            toast.error("Please enter a valid email address.");
+            break;
+          case "auth/weak-password":
+            toast.error("Password should be at least 6 characters long.");
+            break;
+          case "auth/missing-password":
+            toast.error("Please enter your password.");
+            break;
+          case "auth/network-request-failed":
+            toast.error("Network error. Please check your connection.");
+            break;
+          case "auth/too-many-requests":
+            toast.error("Too many attempts. Try again later.");
+            break;
+          default:
+            toast.error("Something went wrong. Please try again.");
+        }
       });
   };
   return (
@@ -64,7 +101,7 @@ const Register = () => {
                   // show error or message
                 }
               </div>
-              <button className="btn btn-neutral mt-4">Login</button>
+              <button className="btn btn-neutral mt-4">Register</button>
             </fieldset>
           </form>
           <p>

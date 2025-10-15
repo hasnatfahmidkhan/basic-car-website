@@ -2,17 +2,15 @@ import { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { signInUser, signInWithGoogle, authLoading } = use(AuthContext);
+  const { signInUser, signInWithGoogle } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   // console.log(state);
 
-  if (authLoading) {
-    return console.log("Loading");
-  }
   // handle login user
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,13 +19,15 @@ const Login = () => {
     // console.log(email, password);
 
     signInUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        // console.log(result.user);
         e.target.reset();
         navigate(location.state || "/");
       })
       .catch((err) => {
-        console.log(err);
+        e.target.reset();
+        toast.error(err.message);
+        console.log(err.code);
       });
   };
 
