@@ -26,7 +26,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-5">
         <h1 className="text-3xl font-bold text-center mt-4">Login</h1>
         <div className="card-body">

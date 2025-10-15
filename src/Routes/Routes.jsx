@@ -40,14 +40,14 @@ export const router = createBrowserRouter([
         path: "/profile",
         Component: Profile,
       },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
     ],
-  },
-  {
-    path: "/login",
-    Component: Login,
-  },
-  {
-    path: "/register",
-    Component: Register,
   },
 ]);

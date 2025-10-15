@@ -9,7 +9,9 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handleSignOut = () => {
     signOutUser()
-      .then()
+      .then(()=>{
+
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -49,7 +51,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={() => navigate("/register")}
-              className="xl:btn btn-info text-xl xl:text-base"
+              className="xl:btn btn-success text-xl xl:text-base"
             >
               Register
             </button>
