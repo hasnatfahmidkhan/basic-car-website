@@ -1,9 +1,26 @@
 import { Star, ClipboardList, PhoneOutgoing } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { setWishList } from "../../Utitlity/localStorage";
+import { useEffect, useState } from "react";
+// import swiper and swiperslide
+import { Swiper, SwiperSlide } from "swiper/react";
+// import Swiper core and required modules
+// Navigation for the arrow and Thumbs to link the two swippers
+import { Navigation, Thumbs, Autoplay, FreeMode } from "swiper/modules"; // Added FreeMode import for clarity
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/thumbs";
+import "swiper/css/free-mode"; // Added free-mode CSS import
 
 const CarDetails = () => {
   const { state } = useLocation();
+  const [slideImages, setSlideImages] = useState([]);
+  // Corrected state variable name to standard React convention (thumbsSwiper)
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const {
     id,
     carName,
@@ -35,6 +52,10 @@ const CarDetails = () => {
     views,
   } = state;
 
+  useEffect(() => {
+    setSlideImages([image, ...images]);
+  }, [image, images]);
+
   return (
     <div>
       <section className="bg-white rounded-2xl shadow-md p-6 md:p-10 mt-6 border border-gray-100">
@@ -42,24 +63,74 @@ const CarDetails = () => {
         <div className="grid md:grid-cols-2 gap-10">
           {/* Left: Images */}
           <div>
-            <img
-              src={image}
-              alt={carName}
-              className="rounded-xl w-full h-72 object-cover shadow-md"
-            />
-            <div className="flex gap-3 mt-4">
-              {images?.map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={`${carName} ${i}`}
-                  className="w-24 h-20 object-cover rounded-lg border hover:scale-105 transition"
-                />
+            {/* 1. MAIN IMAGE SLIDER: Added responsive height classes */}
+            <Swiper
+              thumbs={{ swiper: thumbsSwiper }}
+              slidesPerView={1}
+              loop={true}
+              navigation={true}
+              modules={[Navigation, Thumbs, Autoplay]}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false, // Ensure autoplay continues after manual swipe
+                pauseOnMouseEnter: true, // Pause on hover for better UX
+              }}
+              // ADDED CLASS: Responsive height for the main slider container
+              className="w-full h-64 md:h-80 lg:h-96 main-image-swiper"
+            >
+              {slideImages.map((image, i) => (
+                <SwiperSlide key={i}>
+                  <img
+                    src={image}
+                    // CHANGED CLASS: Use h-full to fill the responsive container height
+                    className="rounded-xl w-full h-full object-cover shadow-md"
+                  />
+                </SwiperSlide>
               ))}
-            </div>
+            </Swiper>
+            {/* 2. THUMBNAIL SLIDER: Added breakpoints for responsive slide count */}
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              // REMOVED slidesPerView here to use breakpoints below
+              spaceBetween={10}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[Navigation, Thumbs, FreeMode]} // Added FreeMode
+              className="mt-4 thumbnail-swiper"
+              // ADDED PROP: Swiper Breakpoints for responsiveness
+              breakpoints={{
+                // 3 slides on screens 0px and up (mobile)
+                320: {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
+                },
+                // 5 slides on screens 768px and up (tablet/desktop)
+                768: {
+                  slidesPerView: 5,
+                  spaceBetween: 10,
+                },
+                // 6 slides on screens 1024px and up (large desktop)
+                1024: {
+                  slidesPerView: 6,
+                  spaceBetween: 10,
+                },
+              }}
+            >
+              {slideImages.map((img, i) => (
+                <SwiperSlide key={i}>
+                  <div className="w-full h-full cursor-pointer">
+                    <img
+                      src={img}
+                      // CHANGED CLASS: Ensure uniform thumbnail size
+                      className="w-full h-20 object-cover rounded-lg border hover:scale-105 transition"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
-          {/* Right: Main Info */}
+          {/* Right: Main Info - Grid is already md:grid-cols-2 responsive */}
           <div className="space-y-3">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-800 playfair-font">
               {carName}
@@ -84,7 +155,8 @@ const CarDetails = () => {
 
             <p className="text-gray-600">{description}</p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-3 pt-3 text-sm text-gray-600">
+            {/* CHANGED CLASS: Added xl:grid-cols-4 for extra large screens */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-y-3 pt-3 text-sm text-gray-600">
               <p>
                 <strong>🚗 Type:</strong> {type}
               </p>
@@ -127,7 +199,7 @@ const CarDetails = () => {
 
         <div className="divider"></div>
 
-        {/* feature section  */}
+        {/* feature section */}
         <div>
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Features</h2>
           <div className="grid md:grid-cols-3 gap-4">
