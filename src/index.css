@@ -5,6 +5,7 @@
 * {
   font-family: "Work Sans", sans-serif;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 .playfair-font {
