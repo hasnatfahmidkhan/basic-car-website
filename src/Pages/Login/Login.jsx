@@ -1,13 +1,18 @@
 import { use, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { signInUser } = use(AuthContext);
+  const { signInUser, signInWithGoogle, authLoading } = use(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
+  // console.log(state);
 
+  if (authLoading) {
+    return console.log("Loading");
+  }
   // handle login user
   const handleLogin = (e) => {
     e.preventDefault();
@@ -19,7 +24,18 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         e.target.reset();
-        navigate("/");
+        navigate(location.state || "/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // sign in with google
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then(() => {
+        navigate(location.state || "/");
       })
       .catch((err) => {
         console.log(err);
@@ -69,7 +85,10 @@ const Login = () => {
 
           <div className="divider font-medium text-gray-500">Or login with</div>
           {/* Google */}
-          <button className="btn bg-white text-black border-[#e5e5e5]">
+          <button
+            onClick={handleSignInWithGoogle}
+            className="btn bg-white text-black border-[#e5e5e5]"
+          >
             <svg
               aria-label="Google logo"
               width="16"
