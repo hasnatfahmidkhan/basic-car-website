@@ -1,13 +1,36 @@
-import React from "react";
-import { Link } from "react-router";
+import { use, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import { Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const { signInUser } = use(AuthContext);
+  const navigate = useNavigate();
+
+  // handle login user
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    // console.log(email, password);
+
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        e.target.reset();
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-5">
         <h1 className="text-3xl font-bold text-center mt-4">Login</h1>
         <div className="card-body">
-          <form>
+          <form onSubmit={handleLogin}>
             <fieldset className="fieldset">
               <label className="label">Email</label>
               <input
@@ -17,12 +40,20 @@ const Login = () => {
                 placeholder="Email"
               />
               <label className="label">Password</label>
-              <input
-                type="password"
-                name="password"
-                className="input"
-                placeholder="Password"
-              />
+              <div className="relative flex items-center">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className="input"
+                  placeholder="Password"
+                />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 cursor-pointer active:translate-y-0.5 transition duration-300 z-50"
+                >
+                  {!showPassword ? <Eye /> : <EyeOff />}
+                </span>
+              </div>
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>

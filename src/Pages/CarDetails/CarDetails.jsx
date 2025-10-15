@@ -1,7 +1,7 @@
 import { Star, ClipboardList, PhoneOutgoing } from "lucide-react";
-import { Link, useLocation } from "react-router";
+import { Link, useParams } from "react-router";
 import { setWishList } from "../../Utitlity/localStorage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import swiper and swiperslide
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
@@ -15,12 +15,17 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/thumbs";
 import "swiper/css/free-mode"; // Added free-mode CSS import
+import useCarData from "../../Hooks/useCarData";
 
 const CarDetails = () => {
-  const { state } = useLocation();
-  const [slideImages, setSlideImages] = useState([]);
+  const { id: carId } = useParams();
+  const { cars, loading } = useCarData("/carsData.json");
+  const carDetail = cars.find((car) => car.id == carId);
+
   // Corrected state variable name to standard React convention (thumbsSwiper)
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+  // destructuring the car data's
   const {
     id,
     carName,
@@ -50,19 +55,19 @@ const CarDetails = () => {
     serviceHistory,
     postedDate,
     views,
-  } = state;
+  } = carDetail || {};
 
-  useEffect(() => {
-    setSlideImages([image, ...images]);
-  }, [image, images]);
+  if (loading) {
+    return console.log("Loading");
+  }
 
   return (
     <div>
-      <section className="bg-white rounded-2xl shadow-md p-6 md:p-10 mt-6 border border-gray-100">
+      <section className="bg-white rounded-2xl shadow-md p-4 sm:p-6 md:p-10 mt-6 border border-gray-100">
         {/* Top Section */}
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Left: Images */}
-          <div>
+          <div className="w-full max-w-full">
             {/* 1. MAIN IMAGE SLIDER: Added responsive height classes */}
             <Swiper
               thumbs={{ swiper: thumbsSwiper }}
@@ -76,9 +81,9 @@ const CarDetails = () => {
                 pauseOnMouseEnter: true, // Pause on hover for better UX
               }}
               // ADDED CLASS: Responsive height for the main slider container
-              className="w-full h-64 md:h-80 lg:h-96 main-image-swiper"
+              className="w-full h-56 sm:h-64 md:h-80 lg:h-96 main-image-swiper"
             >
-              {slideImages.map((image, i) => (
+              {images.map((image, i) => (
                 <SwiperSlide key={i}>
                   <img
                     src={image}
@@ -97,33 +102,15 @@ const CarDetails = () => {
               slidesPerView={3}
               watchSlidesProgress={true}
               modules={[Navigation, Thumbs, FreeMode]} // Added FreeMode
-              className="mt-4 thumbnail-swiper"
-              // ADDED PROP: Swiper Breakpoints for responsiveness
-              // breakpoints={{
-              //   // 3 slides on screens 0px and up (mobile)
-              //   320: {
-              //     slidesPerView: 3,
-              //     spaceBetween: 10,
-              //   },
-              //   // 5 slides on screens 768px and up (tablet/desktop)
-              //   768: {
-              //     slidesPerView: 5,
-              //     spaceBetween: 10,
-              //   },
-              //   // 6 slides on screens 1024px and up (large desktop)
-              //   1024: {
-              //     slidesPerView: 6,
-              //     spaceBetween: 10,
-              //   },
-              // }}
+              className="mt-4 w-full thumbnail-swiper"
             >
-              {slideImages.map((img, i) => (
+              {images.map((img, i) => (
                 <SwiperSlide key={i}>
                   <div className="w-full h-full cursor-pointer">
                     <img
                       src={img}
                       // CHANGED CLASS: Ensure uniform thumbnail size
-                      className="w-full h-28 object-cover rounded-lg border hover:scale-105 transition"
+                      className="w-full h-20 sm:h-24 object-cover rounded-lg border hover:scale-105 transition"
                     />
                   </div>
                 </SwiperSlide>

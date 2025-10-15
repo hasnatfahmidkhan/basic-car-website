@@ -1,5 +1,4 @@
 import { Star } from "lucide-react";
-import React from "react";
 import { useNavigate } from "react-router";
 
 const CarCard = ({ car }) => {
@@ -58,7 +57,7 @@ const CarCard = ({ car }) => {
         <div className="px-2 py-3  flex justify-between w-full items-center">
           <p className="text-green-600 font-bold text-xl">৳ {price}</p>
           <button
-            onClick={() => navigate(`/car-details/${id}`, { state: car })}
+            onClick={() => navigate(`/car-details/${id}`)}
             className="px-4 py-2 cursor-pointer bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
           >
             View Details
