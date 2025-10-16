@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getWishList, removeFromWishList } from "../../Utitlity/localStorage";
 import useCarData from "../../Hooks/useCarData";
+import Lottie from "lottie-react";
+import empty from "../../assets/empty-box.json";
 
 const WishList = () => {
   const { cars } = useCarData("../carsData.json");
@@ -51,7 +53,9 @@ const WishList = () => {
             <p className="text-gray-500 text-center">
               No cars added to wishlist yet.
             </p>
-            <img className="w-md" src="/empty.gif" alt="" />
+            <div className="w-md">
+              <Lottie animationData={empty} loop={true} />
+            </div>
           </div>
         ) : (
           wishList.map((car) => (

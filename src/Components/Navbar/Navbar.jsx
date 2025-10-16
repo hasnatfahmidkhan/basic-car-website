@@ -41,7 +41,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={() => navigate("/login")}
-              className="xl:btn btn-info text-xl xl:text-base"
+              className="xl:btn btn-info font-medium text-xl xl:text-base"
             >
               Login
             </button>
@@ -49,7 +49,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={() => navigate("/register")}
-              className="xl:btn btn-success text-xl xl:text-base"
+              className="xl:btn btn-success font-medium text-xl xl:text-base"
             >
               Register
             </button>
