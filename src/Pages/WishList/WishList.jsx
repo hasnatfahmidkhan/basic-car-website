@@ -3,6 +3,7 @@ import { getWishList, removeFromWishList } from "../../Utitlity/localStorage";
 import useCarData from "../../Hooks/useCarData";
 import Lottie from "lottie-react";
 import empty from "../../assets/empty-box.json";
+import { AnimatePresence, motion } from "motion/react";
 
 const WishList = () => {
   const { cars } = useCarData("../carsData.json");
@@ -53,36 +54,61 @@ const WishList = () => {
             <p className="text-gray-500 text-center">
               No cars added to wishlist yet.
             </p>
-            <div className="w-md">
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.5,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className="w-md"
+            >
               <Lottie animationData={empty} loop={true} />
-            </div>
+            </motion.div>
           </div>
         ) : (
-          wishList.map((car) => (
-            <div
-              key={car.id}
-              className="w-full bg-white shadow-md rounded-2xl overflow-hidden flex flex-col md:flex-row items-center md:items-start gap-4 p-4 border border-gray-100"
-            >
-              <img
-                src={car.image}
-                alt={car.carName}
-                className="w-full md:w-60 h-40 object-cover rounded-xl"
-              />
-              <div className="flex-1">
-                <h3 className="text-xl font-bold">{car.carName}</h3>
-                <p className="text-gray-500">{car.brand}</p>
-                <p className="text-lg font-semibold mt-2">
-                  ${car.price.toLocaleString()}
-                </p>
-              </div>
-              <button
-                className="btn bg-red-500 text-white rounded-xl hover:bg-red-600"
-                onClick={() => handleRemove(car.id)}
+          <AnimatePresence>
+            {wishList.map((car) => (
+              <motion.div
+                layout
+                animate={{
+                  opacity: 1,
+                  height: "auto",
+                }}
+                exit={{
+                  opacity: 0,
+                  height: 0,
+                }}
+                key={car.id}
+                className="w-full bg-white shadow-md rounded-2xl overflow-hidden flex flex-col md:flex-row items-center md:items-start gap-4 p-4 border border-gray-100"
               >
-                Remove
-              </button>
-            </div>
-          ))
+                <img
+                  src={car.image}
+                  alt={car.carName}
+                  className="w-full md:w-60 h-40 object-cover rounded-xl"
+                />
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold">{car.carName}</h3>
+                  <p className="text-gray-500">{car.brand}</p>
+                  <p className="text-lg font-semibold mt-2">
+                    ${car.price.toLocaleString()}
+                  </p>
+                </div>
+                <button
+                  className="btn bg-red-500 text-white rounded-xl hover:bg-red-600"
+                  onClick={() => handleRemove(car.id)}
+                >
+                  Remove
+                </button>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         )}
       </div>
     </section>
